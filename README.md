@@ -6,13 +6,15 @@ Does not really require any dependencies, simply download or use following curl 
 If you intend to use this script with web-based players such as Tidal, or anything else in the browser -- install **`playerctl`**
 
 ### Install steps
-To clone this script into a directory and mark it as executable run the following commands 
+Clone this repository, mark the script as executable and run it.
 
-`curl https://raw.githubusercontent.com/dhonus/bash-lyrics/main/bash-lyrics >> bash-lyrics`
+`git clone https://github.com/dhonus/bash-lyrics`
 
- `chmod +x bash-lyrics`
+`cd bash-lyrics`
 
- `./bash-lyrics`
+`chmod +x bash-lyrics`
+
+`./bash-lyrics`
 
 ---
 
