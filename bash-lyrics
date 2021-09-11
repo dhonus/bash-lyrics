@@ -350,4 +350,7 @@ echo $thesong\
     | sed 's/<>//g' \
     | tail -n +10 \
     | head -n -5 \
-    | sed /^\</d
+    | sed /^\</d \
+    | sed 's/<i>//g' \
+    | sed 's/<\/i>//g'
+
