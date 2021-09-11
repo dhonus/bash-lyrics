@@ -334,9 +334,11 @@ echo $thesong
 echo ">"
 echo $thesong\
     | sed -e "s/\(.*\)/https:\/\/search.azlyrics.com\/search.php?q=\1/" \
-    | sed 's/\ /+/g' \
-    | sed 's/\+-+/+/g' \
-    | sed 's/\+$//' \
+    | sed '
+      s/\ /+/g
+      s/\+-+/+/g
+      s/\+$//
+    ' \
     | sed -e "s/\(.*\)/\"\1\"/" \
     | xargs -I{} curl -s --user-agent 'Chrome/93' -L {} \
     | grep -o '<a .*href=.*>' \
@@ -346,11 +348,14 @@ echo $thesong\
     | head -n 1 \
     | xargs -I{} curl -s --user-agent 'Chrome/93' -L  {} \
     | sed -n '/ringtone/,/MxM\ banner/p' \
-    | sed 's/br//g' \
-    | sed 's/<>//g' \
+    | sed '
+      s/br//g
+      s/<>//g
+    ' \
     | tail -n +10 \
     | head -n -5 \
     | sed /^\</d \
-    | sed 's/<i>//g' \
-    | sed 's/<\/i>//g'
-
+    | sed '
+      s/<i>//g
+      s/<\/i>//g
+    '
